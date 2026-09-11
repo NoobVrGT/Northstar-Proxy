@@ -1,15 +1,35 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
-  <style>
-    body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background: #0f0f0f; }
-    iframe { width: 100%; height: 100%; border: none; }
-  </style>
   <foreignObject width="100%" height="100%">
-    <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%; height:100%;">
-      <iframe id="proxy-frame" src="about:blank"></iframe>
+    <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%; height:100%; margin:0; padding:0;">
+      <!doctype html>
+      <html>
+        <head>
+          <meta charset="utf-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+          <title>NorthStar</title>
+          <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/NoobVrGT/Northstar-Proxy@main/public/favicon.ico" />
+          
+          <script src="https://cdn.jsdelivr.net/gh/NoobVrGT/Northstar-Proxy@main/public/scram/scramjet.all.js"></script>
+          <script src="https://cdn.jsdelivr.net/gh/NoobVrGT/Northstar-Proxy@main/public/baremux/index.js"></script>
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/NoobVrGT/Northstar-Proxy@main/public/index.css" />
+          <script src="https://cdn.jsdelivr.net/gh/NoobVrGT/Northstar-Proxy@main/public/register-sw.js" defer></script>
+          <script src="https://cdn.jsdelivr.net/gh/NoobVrGT/Northstar-Proxy@main/public/search.js" defer></script>
+          <script src="https://cdn.jsdelivr.net/gh/NoobVrGT/Northstar-Proxy@main/public/index.js" defer></script>
+        </head>
+        <body style="margin:0; background:#0f0f0f; color:#fff; font-family:sans-serif;">
+          <div title="NorthStar Logo" style="display:flex; justify-content:center; align-items:center; flex-direction:column; margin-top:20vh;">
+            <img src="https://cdn.jsdelivr.net/gh/NoobVrGT/Northstar-Proxy@main/public/sj.png" alt="NorthStar" style="width:80px;height:80px;" />
+            <h1>NorthStar</h1>
+          </div>
+          <div style="display:flex; justify-content:center; margin-top:20px;">
+            <form id="sj-form">
+              <input id="sj-search-engine" value="https://www.google.com/search?q=%s" type="hidden" />
+              <input id="sj-address" type="text" placeholder="Search the web freely" style="padding:10px; width:300px; border-radius:5px; border:none;" />
+            </form>
+          </div>
+        </body>
+      </html>
     </div>
   </foreignObject>
-  <script><![CDATA[
-    const targetUrl = "https://cdn.jsdelivr.net/gh/NoobVrGT/Northstar-Proxy@main/public/index.html";
-    document.getElementById('proxy-frame').src = targetUrl;
-  ]]></script>
 </svg>

@@ -1,4 +1,4 @@
-<p align="center"><img src="https://raw.githubusercontent.com/MercuryWorkshop/scramjet/main/assets/scramjet.png" height="200"></p>
+<p align="center"><img src="https://github.com/NoobVrGT/Northstar-Proxy/blob/f88dbcef04c20c59cef345553c5478a303a08db4/public/sj.png" height="200"></p>
 
 <h1 align="center">NorthStar</h1>
 

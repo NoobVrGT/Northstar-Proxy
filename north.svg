@@ -29,6 +29,3 @@
     </div>
   </foreignObject>
 </svg>
-git add .
-git commit -m "Update proxy files"
-git push origin main

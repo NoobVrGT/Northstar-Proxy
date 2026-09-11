@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"> 
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
   <foreignObject width="100%" height="100%">
     <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%; height:100%; margin:0; padding:0;">
       <html>
@@ -7,7 +7,7 @@
           <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
           <title>NorthStar</title>
           
-          <script src="https://cdn.jsdelivr.net/npm/@mercuryworkshop/baremux@latest/dist/index.js"></script>
+          <script src="https://cdn.jsdelivr.net/npm/@mercuryworkshop/bare-mux@latest/dist/index.js"></script>
           <script src="https://cdn.jsdelivr.net/npm/@mercuryworkshop/scramjet-controller@latest/dist/scramjet.all.js"></script>
           
           <script src="https://cdn.jsdelivr.net/gh/NoobVrGT/Northstar-Proxy@main/public/register-sw.js" defer="defer"></script>

@@ -7,8 +7,8 @@
           <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
           <title>NorthStar</title>
           
-          <script src="https://cdn.jsdelivr.net/npm/@mercuryworkshop/bare-mux@latest/dist/index.js"></script>
-          <script src="https://cdn.jsdelivr.net/npm/@mercuryworkshop/scramjet-controller@latest/dist/scramjet.all.js"></script>
+         <script src="https://www.unpkg.com/@mercuryworkshop/bare-mux@latest/dist/index.js"></script>
+<script src="https://www.unpkg.com/@mercuryworkshop/scramjet-controller@latest/dist/scramjet.all.js"></script>
           
           <script src="https://cdn.jsdelivr.net/gh/NoobVrGT/Northstar-Proxy@main/public/register-sw.js" defer="defer"></script>
           <script src="https://cdn.jsdelivr.net/gh/NoobVrGT/Northstar-Proxy@main/public/search.js" defer="defer"></script>

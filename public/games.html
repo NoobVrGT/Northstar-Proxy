@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games - gn-math</title>
+    <style>
+        body { font-family: system-ui, sans-serif; background: #0f172a; color: #f1f5f9; margin: 0; padding: 2rem; }
+        .search-bar { margin-bottom: 2rem; display: flex; gap: 1rem; }
+        input { padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid #334155; background: #1e293b; color: #fff; width: 100%; max-width: 400px; }
+        #container { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1.5rem; }
+        .zone-item { background: #1e293b; border: 1px solid #334155; border-radius: 12px; overflow: hidden; cursor: pointer; display: flex; flex-direction: column; transition: transform 0.2s; }
+        .zone-item:hover { transform: translateY(-4px); border-color: #fc2651; }
+        .zone-item img { width: 100%; aspect-ratio: 1; object-fit: cover; }
+        .zone-item button { background: transparent; color: #f1f5f9; border: 0; padding: 1rem; cursor: pointer; font-weight: 600; text-align: center; }
+        #zoneViewer { position: fixed; inset: 0; background: #0f172a; display: none; flex-direction: column; z-index: 1000; }
+        .zone-header { background: #fc2651; padding: 1rem; display: flex; justify-content: space-between; align-items: center; color: white; }
+        .zone-header button { background: rgba(255,255,255,0.2); border: none; color: white; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; }
+        #zoneFrame { flex-grow: 1; border: none; width: 100%; height: 100%; }
+    </style>
+</head>
+<body>
+
+    <div class="search-bar">
+        <input type="text" id="searchBar" placeholder="Search games..." oninput="filterZones()">
+    </div>
+
+    <div id="container">Loading games...</div>
+
+    <div id="zoneViewer">
+        <div class="zone-header">
+            <h2 id="zoneName" style="margin:0; font-size: 1.2rem;"></h2>
+            <button onclick="closeZone()">Close</button>
+        </div>
+        <iframe id="zoneFrame"></iframe>
+    </div>
+
+    <script>
+        const container = document.getElementById('container');
+        const searchBar = document.getElementById('searchBar');
+        const zoneViewer = document.getElementById('zoneViewer');
+        const zoneFrame = document.getElementById('zoneFrame');
+        const zoneName = document.getElementById('zoneName');
+
+        const zonesURL = "https://cdn.jsdelivr.net/gh/freebuisness/assets@main/zones.json";
+        const coverURL = "https://cdn.jsdelivr.net/gh/freebuisness/covers@main";
+        const htmlURL = "https://cdn.jsdelivr.net/gh/freebuisness/html@main";
+        let zones = [];
+
+        async function listZones() {
+            try {
+                const response = await fetch(zonesURL);
+                zones = await response.json();
+                displayZones(zones);
+            } catch (error) {
+                container.innerHTML = `Error loading games: ${error}`;
+            }
+        }
+
+        function displayZones(data) {
+            container.innerHTML = "";
+            data.forEach(file => {
+                const zoneItem = document.createElement("div");
+                zoneItem.className = "zone-item";
+                zoneItem.onclick = () => openZone(file);
+
+                const img = document.createElement("img");
+                img.src = file.cover ? file.cover.replace("{COVER_URL}", coverURL).replace("{HTML_URL}", htmlURL) : "";
+                img.alt = file.name;
+                img.loading = "lazy";
+
+                const button = document.createElement("button");
+                button.textContent = file.name;
+
+                zoneItem.appendChild(img);
+                zoneItem.appendChild(button);
+                container.appendChild(zoneItem);
+            });
+        }
+
+        function filterZones() {
+            const query = searchBar.value.toLowerCase();
+            const filtered = zones.filter(zone => zone.name.toLowerCase().includes(query));
+            displayZones(filtered);
+        }
+
+        function openZone(file) {
+            if (file.url.startsWith("http")) {
+                window.open(file.url, "_blank");
+            } else {
+                const url = file.url.replace("{COVER_URL}", coverURL).replace("{HTML_URL}", htmlURL);
+                fetch(url)
+                    .then(res => res.text())
+                    .then(html => {
+                        zoneFrame.srcdoc = html;
+                        zoneName.textContent = file.name;
+                        zoneViewer.style.display = "flex";
+                    })
+                    .catch(err => alert("Failed to load game: " + err));
+            }
+        }
+
+        function closeZone() {
+            zoneViewer.style.display = "none";
+            zoneFrame.srcdoc = "";
+        }
+
+        listZones();
+    </script>
+</body>
+</html>

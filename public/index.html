@@ -1,66 +1,168 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
-		/>
-		<title>NorthStar</title>
+    <head>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+        />
+        <title>NorthStar</title>
 
-		<link rel="shortcut icon" content="favicon.webp" />
-	
-		<script src="/scram/scramjet.all.js"></script>
-		<script src="/baremux/index.js"></script>
-		
-		<link rel="stylesheet" href="index.css" />
-		<script src="register-sw.js" defer></script>
-		<script src="search.js" defer></script>
-		<script src="index.js" defer></script>
-	</head>
+        <link rel="shortcut icon" content="favicon.webp" />
+    
+        <script src="/scram/scramjet.all.js"></script>
+        <script src="/baremux/index.js"></script>
+        
+        <link rel="stylesheet" href="index.css" />
+        <script src="register-sw.js" defer></script>
+        <script src="search.js" defer></script>
+        <script src="index.js" defer></script>
+        <style>
+            /* Glassmorphism navigation tabs with logo-matching gradient hover */
+            .nav-tabs {
+                display: flex;
+                justify-content: center;
+                gap: 12px;
+                margin: 25px 0;
+            }
+            .nav-tabs a {
+                color: #a1a1aa;
+                text-decoration: none;
+                padding: 8px 20px;
+                border-radius: 20px;
+                background: rgba(255, 255, 255, 0.03);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                transition: all 0.3s ease;
+                font-family: inherit;
+                font-size: 14px;
+                font-weight: 500;
+            }
+            .nav-tabs a:hover {
+                color: #fff;
+                background: linear-gradient(135deg, rgba(34, 197, 94, 0.25), rgba(0, 162, 255, 0.25));
+                border-color: rgba(0, 162, 255, 0.4);
+                box-shadow: 0 4px 15px rgba(0, 162, 255, 0.2);
+                transform: translateY(-1px);
+            }
+            .nav-tabs a.active {
+                color: #fff;
+                background: linear-gradient(135deg, #10b981, #0ea5e9);
+                border-color: transparent;
+                box-shadow: 0 4px 15px rgba(14, 165, 233, 0.35);
+            }
 
-	<body>
-		<div title="NorthStar Logo" class="flex-center logo-wrapper header-center">
-			<img class="logo" src="sj.png" alt="NorthStar" />
-			<h1>NorthStar</h1>
-		</div>
-		<div class="flex-center desc left-margin">
-			<p>
-				NorthStar is a customized web proxy experience built on the Scramjet
-				codebase. It keeps the core functionality of the original project while
-				adding a cleaner, personalized NorthStar experience.
-			</p>
-		</div>
+            /* Built-in Bookmarks Grid Styling */
+            .bookmarks-container {
+                display: flex;
+                justify-content: center;
+                gap: 12px;
+                flex-wrap: wrap;
+                margin: 20px auto 30px auto;
+                max-width: 650px;
+                padding: 0 1rem;
+            }
+            .bookmark-btn {
+                background: rgba(30, 41, 59, 0.7);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                color: #f1f5f9;
+                padding: 8px 16px;
+                border-radius: 12px;
+                font-size: 13px;
+                font-weight: 500;
+                cursor: pointer;
+                text-decoration: none;
+                backdrop-filter: blur(8px);
+                transition: all 0.2s ease;
+                display: flex;
+                align-items: center;
+                gap: 6px;
+            }
+            .bookmark-btn:hover {
+                background: rgba(51, 65, 85, 0.9);
+                border-color: rgba(14, 165, 233, 0.4);
+                transform: translateY(-2px);
+                color: #fff;
+            }
+        </style>
+    </head>
 
-		<form id="sj-form" class="flex-center">
-			<input
-				id="sj-search-engine"
-				value="https://www.google.com/search?q=%s"
-				type="hidden"
-			/>
-			<input id="sj-address" type="text" placeholder="Search the web freely" />
-		</form>
-		<div class="desc left-margin">
-			<p id="sj-error"></p>
-			<pre id="sj-error-code"></pre>
-		</div>
-		<footer>
-			<div>
-				<a
-					title="The Mercury Workshop GitHub organization"
-					href="https://github.com/MercuryWorkshop"
-					>Mercury Workshop</a
-				>
-				<a
-					title="NorthStar project base"
-					href="https://github.com/MercuryWorkshop/Scramjet-Demo"
-					>Base Project</a
-				>
-				<a title="License information" href="credits.html">Credits</a>
-			</div>
-			<div>
-				<span>NorthStar &copy; 2025</span>
-			</div>
-		</footer>
-	</body>
+    <body>
+        <!-- Navigation Header with Glass Gradient Tabs -->
+        <nav class="nav-tabs">
+            <a href="index.html" class="active">Home</a>
+            <a href="games.html">Games</a>
+            <a href="credits.html">Credits</a>
+        </nav>
+
+        <div title="NorthStar Logo" class="flex-center logo-wrapper header-center">
+            <img class="logo" src="sj.png" alt="NorthStar" />
+            <h1>NorthStar</h1>
+        </div>
+        <div class="flex-center desc left-margin">
+            <p>
+                NorthStar is a customized web proxy experience built on the Scramjet
+                codebase. It keeps the core functionality of the original project while
+                adding a cleaner, personalized NorthStar experience.
+            </p>
+        </div>
+
+        <form id="sj-form" class="flex-center">
+            <input
+                id="sj-search-engine"
+                value="https://www.google.com/search?q=%s"
+                type="hidden"
+            />
+            <input id="sj-address" type="text" placeholder="Search the web freely" />
+        </form>
+
+        <!-- Quick Bookmarks Bar -->
+        <div class="bookmarks-container">
+            <a href="#" onclick="navigateBookmark('https://search.brave.com')" class="bookmark-btn">Brave</a>
+            <a href="#" onclick="navigateBookmark('https://discord.com')" class="bookmark-btn">Discord</a>
+            <a href="#" onclick="navigateBookmark('https://www.google.com')" class="bookmark-btn">Google</a>
+            <a href="#" onclick="navigateBookmark('https://github.com')" class="bookmark-btn">GitHub</a>
+            <a href="#" onclick="navigateBookmark('https://www.reddit.com')" class="bookmark-btn">Reddit</a>
+            <a href="#" onclick="navigateBookmark('https://www.youtube.com')" class="bookmark-btn">YouTube</a>
+        </div>
+
+        <div class="desc left-margin">
+            <p id="sj-error"></p>
+            <pre id="sj-error-code"></pre>
+        </div>
+
+        <footer>
+            <div>
+                <a
+                    title="The Mercury Workshop GitHub organization"
+                    href="https://github.com/MercuryWorkshop"
+                    >Mercury Workshop</a
+                >
+                <a
+                    title="NorthStar project base"
+                    href="https://github.com/MercuryWorkshop/Scramjet"
+                    >Base Project</a
+                >
+                <a title="License information" href="credits.html">Credits</a>
+            </div>
+            <div>
+                <span>NorthStar &copy; 2025</span>
+            </div>
+        </footer>
+
+        <script>
+            // Helper function to hook bookmarks directly into Scramjet search/proxy input flow
+            function navigateBookmark(url) {
+                const addressInput = document.getElementById('sj-address');
+                const form = document.getElementById('sj-form');
+                if (addressInput && form) {
+                    addressInput.value = url;
+                    form.dispatchEvent(new Event('submit', { cancelable: true }));
+                } else {
+                    window.location.href = url;
+                }
+            }
+        </script>
+    </body>
 </html>

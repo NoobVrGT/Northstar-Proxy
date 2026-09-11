@@ -10,7 +10,7 @@ This project is designed to help users access the web more freely while maintain
 
 ## Supported Sites
 
-Scramjet has CAPTCHA support! Some of the popular websites that Scramjet supports include:
+NorthStar has CAPTCHA support! Some of the popular websites that NorthStar supports include:
 
 - [Google](https://google.com)
 - [Twitter](https://twitter.com)

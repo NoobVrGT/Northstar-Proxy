@@ -8,7 +8,7 @@
           <title>NorthStar</title>
         </head>
         <body style="margin:0; width:100vw; height:100vh; overflow:hidden; background:#0f0f0f;">
-          <iframe src="https://your-backend-app.onrender.com" style="width:100%; height:100%; border:none;"></iframe>
+          <iframe src="https://northstar-proxy.onrender.com/" style="width:100%; height:100%; border:none;"></iframe>
         </body>
       </html>
     </div>

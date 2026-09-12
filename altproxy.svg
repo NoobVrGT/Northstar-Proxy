@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+  <foreignObject width="100%" height="100%">
+    <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%; height:100%; margin:0; padding:0; overflow:hidden;">
+      <html>
+        <head>
+          <meta charset="utf-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <title>NorthStar</title>
+        </head>
+        <body style="margin:0; width:100vw; height:100vh; overflow:hidden; background:#0f0f0f;">
+          <iframe src="https://pluralsight.gq/" style="width:100%; height:100%; border:none;"></iframe>
+        </body>
+      </html>
+    </div>
+  </foreignObject>
+</svg>
